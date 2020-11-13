@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './user.schema';
 import { UserInput } from './user.input';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class UsersService {
@@ -17,6 +18,10 @@ export class UsersService {
 
   async findAll(): Promise<User[]> {
     return this.userModel.find().exec();
+  }
+
+  async findOne(id: String): Promise<User> {
+    return this.userModel.findById(id);
   }
  
   // async update(nameInput:UserInput):Promise<User>{

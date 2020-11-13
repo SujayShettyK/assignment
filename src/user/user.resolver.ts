@@ -20,6 +20,11 @@ export class UserResolver {
     return this.userService.findAll();
   }
 
+  @Query(() => CreateUserDto)
+  async getUser(@Args('id') id: string) {
+    return await this.userService.findOne(id);
+  }
+
   @Mutation(() => CreateUserDto)
   async createUser(@Args('input') input: UserInput) {
 

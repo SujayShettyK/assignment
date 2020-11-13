@@ -16,6 +16,7 @@ type Mutation {
 }
 
 type Query {
+  getUser(id: String!): CreateUserDto!
   hello: String!
   users: [CreateUserDto!]!
 }
