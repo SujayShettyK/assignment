@@ -21,14 +21,15 @@ export class TasksService {
                 map(response => response.data)
             );
 
-            hello.subscribe((res)=>{
+            hello.subscribe(async (res)=>{
              const result = res.items.map(a=>a.html_url);
            
-            
-                const createdTask = new this.taskModel(result);
-                createdTask.save();
-            
-                
+            for(let i=0;i<10;i++){
+                const createdTask = new this.taskModel({ repo: result[i]});
+                console.log(result[i]);
+                await createdTask.save();
+            }
+        
               
             })
     

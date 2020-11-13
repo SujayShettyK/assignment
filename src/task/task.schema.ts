@@ -7,7 +7,7 @@ export type TasksDocument = Task & Document;
 @Schema()
 export class Task {
   @Prop()
-  repo: string[];
+  repo: string;
 }
 
 export const TasksSchema = SchemaFactory.createForClass(Task);
