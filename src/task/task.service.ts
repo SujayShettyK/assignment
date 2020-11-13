@@ -22,10 +22,13 @@ export class TasksService {
             );
 
             hello.subscribe((res)=>{
-             const result = res.items.map(a=>{html_url: a.html_url});
-console.log(result);
-                const createdTask = new this.taskModel({ repos: result});
+             const result = res.items.map(a=>a.html_url);
+           
+            
+                const createdTask = new this.taskModel(result);
                 createdTask.save();
+            
+                
               
             })
     
