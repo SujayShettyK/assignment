@@ -14,7 +14,7 @@ export class TasksService {
 }
 
 
-  @Cron('5 * * * * *')
+  @Cron('0 00 00 * * 1-7')
    async handleCron() {
     const hello = await this.http.get('https://api.github.com/search/repositories?q=dhiyo')
             .pipe(
