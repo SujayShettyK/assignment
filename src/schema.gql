@@ -9,6 +9,8 @@ type CreateUserDto {
   id: ID!
   name: String!
   password: String!
+  pushToken: String!
+  role: String!
 }
 
 type Mutation {
@@ -27,4 +29,6 @@ input UserInput {
   email: String!
   name: String!
   password: String!
+  pushToken: String!
+  role: String!
 }

@@ -5,15 +5,13 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './user/user.module';
 import { join } from 'path';
-import {TasksModule} from './task/task.module'
+import {TasksModule} from './task/task.module';
 
 
 @Module({
   imports: [
-
     TasksModule,
     UsersModule,
-    
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,

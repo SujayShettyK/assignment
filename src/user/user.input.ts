@@ -18,5 +18,10 @@ export class UserInput {
   @Field({nullable:true})
   country_id: string;
 
+  @Field()
+  pushToken: string;
+  
+  @Field()
+  role: string;
 
 }

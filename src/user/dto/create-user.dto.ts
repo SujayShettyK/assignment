@@ -1,5 +1,13 @@
 
 import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
+class Identity{
+
+  @Field()
+  readonly pushToken: string;
+
+  @Field()
+  readonly role: string;
+}
 
 @ObjectType()
 export class CreateUserDto {
@@ -20,5 +28,9 @@ export class CreateUserDto {
 
   @Field({nullable:true})
   country_id: string;
+
+  @Field(()=>Identity)
+  identity: Identity;
+  
 
 }
