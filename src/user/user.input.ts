@@ -1,8 +1,18 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
 
 @InputType()
+export class IdentityInput {
+
+  @Field()
+  pushToken: string;
+  
+  @Field()
+  role: string;
+}
+
+@InputType()
 export class UserInput {
-  [x: string]: any;
+  
   @Field()
   readonly name: string;
 
@@ -18,10 +28,6 @@ export class UserInput {
   @Field({nullable:true})
   country_id: string;
 
-  @Field()
-  pushToken: string;
-  
-  @Field()
-  role: string;
-
+  @Field(()=>IdentityInput)
+  identity: IdentityInput;
 }

@@ -7,8 +7,17 @@ type CreateUserDto {
   country_id: String
   email: String!
   id: ID!
+  identity: Identity!
   name: String!
   password: String!
+}
+
+type Identity {
+  pushToken: String!
+  role: String!
+}
+
+input IdentityInput {
   pushToken: String!
   role: String!
 }
@@ -27,8 +36,7 @@ input UserInput {
   age: Int
   country_id: String
   email: String!
+  identity: IdentityInput!
   name: String!
   password: String!
-  pushToken: String!
-  role: String!
 }

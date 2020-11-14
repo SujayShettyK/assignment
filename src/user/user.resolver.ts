@@ -25,7 +25,7 @@ export class UserResolver {
 
   @Query(() => CreateUserDto)
   async getUser(@Args('id') id: string) {
-    return await this.userService.findOne(id).populate("identity");
+    return await this.userService.findOne(id);
   }
 
   @Mutation(() => CreateUserDto)
@@ -33,7 +33,7 @@ export class UserResolver {
 
 (await this.agifyService.getAge(input.name)).subscribe(async (res)=>{
      
-      let identityobj:IdentityInput = {pushToken: input.pushToken,role: input.role};
+      let identityobj:IdentityInput = {pushToken: input.identity.pushToken,role: input.identity.role};
      await this.identityService.create(identityobj);
      (await this.agifyService.getNation(input.name)).subscribe((res1)=>{
       //error handling need to implemented
